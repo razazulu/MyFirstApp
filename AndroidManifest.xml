@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myfirstapp">
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LaunchFromSMS">
+            <!-- For app launcher -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="com.YorAppPackage" />
+            </intent-filter>
+            <!-- To open app using link -->
+            <action android:name="android.intent.action.VIEW"></action>
+            <category android:name="android.intent.category.DEFAULT"></category>
+            <category android:name="android.intent.category.BROWSABLE"></category>
+            <data
+                android:scheme="http"
+                android:host="com.example"
+                android:pathPrefix="/myfirstapp">
+            </data>
+        </activity>
+    </application>
+
+</manifest>
